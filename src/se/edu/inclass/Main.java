@@ -33,7 +33,14 @@ public class Main {
         return count;
     }
 
+    private static int countDeadlinesUsingStream(ArrayList<Task> tasks) {
+        return (int) tasks.stream()
+                .filter((t) -> t instanceof Deadline)   // filtering using lambda
+                .count();
+    }
+
     public static void printData(ArrayList<Task> tasksData) {
+        System.out.println("Printing data by looping...");
         for (Task t : tasksData) {
             System.out.println(t);
         }
